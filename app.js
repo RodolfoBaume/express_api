@@ -17,8 +17,24 @@ app.get('/v1/explorers', (req, res) => {
     const explorer3 = {id: 3, name: "Rbaume3"}
     const explorer4 = {id: 4, name: "Rbaume4"}
     const explorers = [explorer1, explorer2, explorer3, explorer4]
+    // HTTP CODE STATUS: 200
     res.status(200).json(explorers)
 })
+
+app.get('/v1/explorers/:id', (req, res) => {
+    console.log(`GET BY ID Explorers V1 API ${new Date()}`)
+    const explorer1 = {id: 1, name: "Rbaume1"}
+    // HTTP CODE STATUS: 200
+    res.status(200).json(explorer1)
+})
+
+// POST
+app.post('/v1/explorers', (req, res) => {
+    console.log(`Api Explorers POST request ${new Date()}`)
+    const requestBody = req.body // Parámetros de un cliente
+    res.status(201).json({message: "Created"})
+})
+
 
 // Con esto inicializamos esta app
 app.listen(port, () => {
